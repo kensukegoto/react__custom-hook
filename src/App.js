@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import useJazzyNews from './useJazzyNews';
 
 function App() {
+
+  const posts = useJazzyNews();
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ul>
+      { posts.map((post,index) => {
+        return <li key={index}>{ post }</li>;
+      })}
+      </ul>
     </div>
   );
 }
